@@ -38,6 +38,8 @@ RUN wget -qO- https://download.revive-adserver.com/revive-adserver-4.1.4.tar.gz 
     && echo -e "#!/bin/sh\ncurl -s -o /dev/null http://127.0.0.1/maintenance.php" > /etc/periodic/daily/maintenance \
     && chmod +x /etc/periodic/daily/maintenance
 
+VOLUME ./app /var/www/html
+
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir -p /run/nginx
